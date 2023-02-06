@@ -4,7 +4,144 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Test Task</title>
 	</head>
-	<body></body>
+	<body class="app">
+    <main>
+      <div class="header">
+        <div class="header__unreadMessages">
+          <p class="header__count">3</p>
+  
+          <p class="header__text">total message</p>
+        </div>
+  
+        <button class="header__button" type="button">
+          <img src="img/newMessage.svg" alt="newMessage">
+          <p class="header__buttonText">New message</p>
+        </button>
+      </div>
+
+      <div class="messages">
+        <div class="messages__sidebar">
+          <div class="messages__search">
+            <img class="messages__searchImage" src="img/search.svg" alt="search">
+            <input class="messages__input" type="text" placeholder="Search">
+          </div>
+
+          <div class="messages__message">
+            <img src="img/user2.svg" alt="user2">
+
+            <div class="messages__item">
+              <div class="messages__info">
+                <div class="messages__name">Philip Nelson</div>
+                <div class="messages__time">9:23 am</div>
+              </div>
+
+              <p class="messages__messageText">Hi Sofia. Could I ask you to help me with...</p>
+            </div>
+          </div>
+
+          <div class="messages__message messages__message--active">
+            <img src="img/user3.svg" alt="user3">
+
+            <div class="messages__item">
+              <div class="messages__info">
+                <div class="messages__name">Philip Nelson</div>
+                <div class="messages__time">9:23 am</div>
+              </div>
+
+              <p class="messages__messageText">Hi Sofia. Could I ask you to help me with...</p>
+            </div>
+          </div>
+
+          <div class="messages__message">
+            <img src="img/user4.svg" alt="user4">
+
+            <div class="messages__item">
+              <div class="messages__info">
+                <div class="messages__name">Philip Nelson</div>
+                <div class="messages__time">9:23 am</div>
+              </div>
+
+              <p class="messages__messageText">Hi Sofia. Could I ask you to help me with...</p>
+            </div>
+          </div>
+
+          <divc class="messages__addReciever">
+            <img src="/img/user5.svg" alt="user5">
+            <img src="/img/user6.svg" alt="user6">
+            <img src="/img/addUser.svg" alt="addUser">
+          </div>
+
+          <div class="messages__activeMessage">
+            <div class="messages__activeMessageInfo">
+              <div class="messages__user">
+                <img src="img/user1.svg" alt="user1">
+                <p class="messages__userName">Philip Nelson</p>
+              </div>
+
+              <div class="messages__options">
+                <button class="messages__optionButton">
+                  <img src="img/search.svg" alt="search">
+                </button>
+    
+                <button class="messages__optionButton">
+                  <img class="messages__optionImage" src="img/options.svg" alt="options">
+                </button>
+              </div>
+
+              <div class="messages__optionList">
+                <p class="messages__optionListText">Disable notifications</p>
+                <p class="messages__optionListText">Export chat history</p>
+                <p class="messages__optionListText">Delete chat</p>
+                <p class="messages__optionListText">Clear history</p>
+                <p class="messages__optionListText messages__optionListText--delete">Delete</p>
+              </div>
+            </div>
+
+            <div class="messages__openedMessage">
+              <p class="messages__date">Jan 8</p>
+              <div class="messages__line"></div>
+
+              <div class="messages__receivedMessage">
+                <img src="img/user3.svg" alt="user3">
+
+                <div class="messages__receivedMessageItem">
+                  <p class="messages__receivedMessageText">You can make a one-time payment to your landlord at any time.
+                    One-time payments are great for things like utility bills or late
+                    fees, or if you need to apply a credit to a payment.</p>
+                  <p class="messages__receivedMessageDate">9:23 am</p>
+                </div>
+              </div>
+
+              <div class="messages__sentMessage">
+                <div class="messages__sentMessageItem">
+                  <p class="messages__sentMessageText">You can make a one-time payment to your landlord at any time.
+                    One-time payments are great for things like utility bills or late
+                    fees, or if you need to apply a credit to a payment.</p>
+                  <p class="messages__sentMessageDate">9:23 am</p>
+                </div>
+
+                <img src="img/user3.svg" alt="user3">
+              </div>
+
+              <div class="messages__newMessage">
+                <img class="messages__newMessageSmiles" src="img/smiles.svg" alt="smiles">
+                <img class="messages__newMessageAdd" src="img/addFile.svg" alt="addFile">
+                <img class="messages__newMessageSend" src="img/send.svg" alt="send">
+                <input class="messages__newMessageInput" type="text" placeholder="Write a message...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script src="js/script.min.js"></script>
 </html>
