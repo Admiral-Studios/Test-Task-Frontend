@@ -13,18 +13,19 @@ let path = {
 		html: [source_folder + '/*.html', '!' + source_folder + '/_*.html'],
 		css: source_folder + '/scss/style.scss',
 		js: source_folder + '/js/script.js',
-		img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
+		img: source_folder + '/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}',
 		fonts: source_folder + '/fonts/**/*.{ttf,woff2,woff}',
 	},
 	watch: {
 		html: source_folder + '/*.html',
 		css: source_folder + '/scss/**/*.scss',
 		js: source_folder + '/js/**/*.js',
-		img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
+		img: source_folder + '/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}',
 		fonts: source_folder + '/fonts/**/*.{ttf,woff2,woff}',
 	},
 	clean: './' + project_folder + '/',
 };
+
 let { src, dest } = require('gulp'),
 	gulp = require('gulp'),
 	browsersync = require('browser-sync').create(),
@@ -32,13 +33,16 @@ let { src, dest } = require('gulp'),
 	del = require('del'),
 	scss = require('gulp-sass')(require('sass')),
 	autoprefixer = require('gulp-autoprefixer'),
-	// group_media = require('gulp-group-css-media-queries'),
+	group_media = require('gulp-group-css-media-queries'),
 	clean_css = require('gulp-clean-css'),
 	rename = require('gulp-rename'),
 	uglify = require('gulp-uglify-es').default,
 	imagemin = require('gulp-imagemin'),
-	webp = require('gulp-webp');
-// ghPages = require('gulp-gh-pages');
+	webp = require('gulp-webp'),
+	webphtml = require('gulp-webp-html'),
+	webpcss = require('gulp-webp-css'),
+	svgSprite = require('gulp-svg-sprite'),
+  ghPages = require('gulp-gh-pages');
 
 const browserSync = () => {
 	browsersync.init({
@@ -50,9 +54,15 @@ const browserSync = () => {
 	});
 };
 
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
+
 const html = () => {
 	return src(path.src.html)
 		.pipe(fileinclude())
+    .pipe(webphtml())
 		.pipe(dest(path.build.html))
 		.pipe(browsersync.stream());
 };
@@ -86,13 +96,14 @@ const css = () => {
 					outputStyle: 'expanded',
 				})
 			)
-			// .pipe(group_media())
+			.pipe(group_media())
 			.pipe(
 				autoprefixer({
 					overrideBrowserslist: ['last 5 versions'],
 					cascade: true,
 				})
 			)
+      .pipe(webpcss())
 			.pipe(dest(path.build.css))
 			.pipe(clean_css())
 			.pipe(
@@ -122,6 +133,19 @@ const js = () => {
 const fonts = () => {
 	return src(path.src.fonts).pipe(dest(path.build.fonts)).pipe(browsersync.stream());
 };
+
+gulp.task('svgSprite', function () {
+  return gulp.src([source_folder + '/iconsprite/*.svg'])
+  .pipe(svgSprite({
+    mode: {
+      stack: {
+        sprite: "../icons/icons.svg",
+        example: true
+      }
+    }
+  }))
+  .pipe(dest(path.build.img))
+})
 
 const watchFiles = () => {
 	gulp.watch([path.watch.fonts], fonts);
