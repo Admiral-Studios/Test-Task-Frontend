@@ -4,3 +4,10 @@
     flex-direction: $fd;
     align-items: $ai;
 }
+
+@mixin font($fz, $fw, $lh, $color) {
+    font-size: $fz;
+    font-weight: $fw;
+    line-height: $lh;
+    color: $color;
+}
