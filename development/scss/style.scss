@@ -1,5 +1,32 @@
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+@import './base/reset.scss';
+@import './utils/_mixins.scss';
+@import './base/typography.scss';
+@import './components/buttons.scss';
+@import './layout/sidebar.scss';
+body {
+    background-color: #F7F8FA;
+    font-family: 'PlusJukartaSans';
+    @include flex(row, center, center);
 }
+
+.container-wrapp {
+    max-width: 1051px;
+}
+
+// header
+.header {
+    margin-bottom: 24px;
+}
+
+.total-message {
+    @include flex(row, flex-start, center);
+    .total-message-num {
+        margin-right: 12px;
+        @include font(28px, 700, 36px, $color-black);
+    }
+    .total-message-text {
+        @include font(14px, 500, 20px, #888FA2);
+    }
+}
+
+// chatbox

@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body></body>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Message</title>
+</head>
+
+<body>
+
+    <div class="container container-wrapp">
+        <div class="row">
+            <div class="col-md-12 header">
+                <div class="row">
+                    <div class="col-md-6 total-message">
+                        <span class="total-message-num">3</span>
+                        <span class="total-message-text">total message</span>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <button id="new-message">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.8334 7.5C15.8334 7.96024 15.4603 8.33334 15.0001 8.33334C14.5398 8.33334 14.1667 7.96024 14.1667 7.5V5.83334H12.5001C12.0398 5.83334 11.6667 5.46024 11.6667 5.00001C11.6667 4.53977 12.0398 4.16667 12.5001 4.16667H14.1667V2.50001C14.1667 2.03977 14.5398 1.66667 15.0001 1.66667C15.4603 1.66667 15.8334 2.03977 15.8334 2.50001V4.16667H17.5001C17.9603 4.16667 18.3334 4.53977 18.3334 5.00001C18.3334 5.46024 17.9603 5.83334 17.5001 5.83334H15.8334V7.5Z" fill="white"/>
+                                <path d="M17.5 10H15.8333V12.5H6.945C6.58423 12.499 6.23304 12.6161 5.945 12.8333L4.16667 14.1667V4.16667H10V2.5H4.16667C3.72464 2.5 3.30072 2.67559 2.98816 2.98816C2.67559 3.30072 2.5 3.72464 2.5 4.16667V17.5L6.5 14.5C6.78833 14.2833 7.13917 14.1667 7.5 14.1667H15.8333C16.2754 14.1667 16.6993 13.9911 17.0118 13.6785C17.3244 13.3659 17.5 12.942 17.5 12.5V10Z" fill="white"/>
+                            </svg>
+                            <span class="new-message-text">New Message</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 chatbox">
+                <div class="row">
+                    <div class="col-md-4 sidebar">
+                        <div class="search-box">
+                            <div class="input-wrapper">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.2583 16.075L14.425 13.25C15.3392 12.0854 15.8352 10.6472 15.8333 9.16667C15.8333 7.84812 15.4423 6.55919 14.7098 5.46286C13.9773 4.36654 12.9361 3.51205 11.7179 3.00747C10.4997 2.50288 9.15927 2.37086 7.86607 2.6281C6.57286 2.88533 5.38497 3.52027 4.45262 4.45262C3.52027 5.38497 2.88534 6.57286 2.6281 7.86606C2.37087 9.15927 2.50289 10.4997 3.00747 11.7179C3.51206 12.9361 4.36654 13.9773 5.46287 14.7098C6.5592 15.4423 7.84813 15.8333 9.16667 15.8333C10.6472 15.8352 12.0854 15.3392 13.25 14.425L16.075 17.2583C16.1525 17.3364 16.2446 17.3984 16.3462 17.4407C16.4477 17.483 16.5567 17.5048 16.6667 17.5048C16.7767 17.5048 16.8856 17.483 16.9872 17.4407C17.0887 17.3984 17.1809 17.3364 17.2583 17.2583C17.3364 17.1809 17.3984 17.0887 17.4407 16.9871C17.4831 16.8856 17.5048 16.7767 17.5048 16.6667C17.5048 16.5567 17.4831 16.4477 17.4407 16.3462C17.3984 16.2446 17.3364 16.1525 17.2583 16.075ZM4.16667 9.16667C4.16667 8.17776 4.45991 7.21106 5.00932 6.38881C5.55873 5.56657 6.33962 4.92571 7.25325 4.54727C8.16688 4.16883 9.17222 4.06981 10.1421 4.26274C11.112 4.45567 12.0029 4.93187 12.7022 5.63113C13.4015 6.33039 13.8777 7.22131 14.0706 8.19121C14.2635 9.16112 14.1645 10.1665 13.7861 11.0801C13.4076 11.9937 12.7668 12.7746 11.9445 13.324C11.1223 13.8734 10.1556 14.1667 9.16667 14.1667C7.84059 14.1667 6.56882 13.6399 5.63114 12.7022C4.69345 11.7645 4.16667 10.4927 4.16667 9.16667Z" fill="#88898A"/>
+                                </svg>
+                                <input type="text" id="search-chat-i" placeholder="Search">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+</body>
+
 </html>

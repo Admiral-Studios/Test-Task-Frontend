@@ -1,0 +1,30 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+#new-message {
+    padding: 10px 16px;
+    background-color: $color-orange;
+    border: 1px solid $color-orange;
+    border-radius: 8px;
+    transition: background-color .5s;
+    svg {
+        margin-right: 8px;
+        path {
+            transition: fill .5s;
+        }
+    }
+    .new-message-text {
+        transition: color 0.5s;
+        @include font(14px, 600, 20px, $color-white);
+    }
+    &:hover {
+        background-color: #F7F8FA;
+        svg {
+            path {
+                fill: $color-orange;
+            }
+        }
+        .new-message-text {
+            color: $color-orange;
+        }
+    }
+}
